@@ -1,0 +1,67 @@
+.resume section {
+  margin-bottom: 30px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.resume-header { background-color: #f8f9fa; }
+.resume-main { background-color: #fff; }
+.resume-secondary { background-color: #f0f0f0; }
+.resume-footer { background-color: #f8f8f8; }
+
+.paragraph-block h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.paragraph-block p {
+  margin: 4px 0;
+}
+
+.resume-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  font-family: 'Arial', sans-serif;
+}
+
+.section-count {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.resume-section {
+  margin-bottom: 30px;
+}
+
+.resume-section.header {
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+.resume-section.footer {
+  border-top: 2px solid #eee;
+  padding-top: 10px;
+}
+
+.paragraph-block {
+  margin-bottom: 15px;
+}
+
+.paragraph-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+.field-line {
+  margin-left: 10px;
+  font-size: 15px;
+  color: #444;
+}

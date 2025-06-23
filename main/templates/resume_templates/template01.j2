@@ -1,0 +1,36 @@
+{% extends "base.html.j2" %}
+{% block content %}
+<div class="container">
+  <h1 class="my-4">📄 السيرة الذاتية – عرض منظم</h1>
+
+  {% for section in sections %}
+    <div class="card mb-4">
+      <div class="card-header bg-primary text-white">
+        <h2 class="mb-0">{{ section.title }}</h2>
+      </div>
+      <div class="card-body">
+        {% for item in section_paragraphs.get(section.id, []) %}
+          <div class="mb-3">
+            <h5>
+              📄 فقرة (ID: {{ item.paragraph.id }}) – النوع: {{ item.paragraph.field_type }}
+              {% if item.paragraph.title_translations %}
+                <br><small class="text-muted">📌 {{ item.paragraph.title_translations.get("ar") }}</small>
+              {% endif %}
+            </h5>
+            <ul>
+              {% for field in item.fields %}
+                <li>
+                  🔹 <strong>{{ field.label }}:</strong> {{ field.value }}
+                  {% if field.description %}
+                    <br><small class="text-muted">{{ field.description }}</small>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}
