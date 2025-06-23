@@ -1,6 +1,4 @@
-# llol_step08
-
-# llol_step08 – Dynamic Resume Builder with Flask
+# Flask-Powered Tool for Structuring and Styling Multilingual Resumes with Live Control
 
 [![Python](https://img.shields.io/badge/Python-3.10-blue)](https://www.python.org/)
 [![Flask](https://img.shields.io/badge/Flask-2.3-lightgrey)](https://flask.palletsprojects.com/)
@@ -29,7 +27,7 @@
 
 ## 📖 Overview
 
-**llol_step09** is the seventh milestone of an open-source dynamic resume builder aimed at empowering multilingual content creation, real-time editing, and customization. It's built for developers who need structured, localized, and exportable resume content managed through a Flask-based admin interface.
+**This project** is the seventh milestone of an open-source dynamic resume builder aimed at empowering multilingual content creation, real-time editing, and customization. It's built for developers who need structured, localized, and exportable resume content managed through a Flask-based admin interface.
 
 ---
 
@@ -38,12 +36,12 @@
 Follow these steps to clone the repository and set up your development environment:
 
 ```bash
-git clone https://github.com/TamerOnLine/llol_step09.git  # Clone the project repository from GitHub
-cd llol_step09                                            # Navigate into the project directory
-python -m venv venv                                       # Create a virtual environment named 'venv'
-.\venv\Scripts\Activate                                  # Activate the virtual environment (Windows CMD)
-python -m pip install --upgrade pip                       # Upgrade pip to the latest version
-pip install -r requirements.txt                           # Install all required dependencies
+git clone https://github.com/TamerOnLine/llol_step09-v1.git  # Clone the repository from GitHub
+cd llol_step09-v1                                             # Navigate into the project directory
+py -m venv venv                                               # Create a virtual environment named 'venv'
+.\venv\Scripts\Activate                                       # Activate the virtual environment (Windows CMD)
+py -m pip install --upgrade pip                               # Upgrade pip to the latest version
+pip install -r requirements.txt                               # Install all required dependencies
 ```
 
 #### 💡 Tip
@@ -60,26 +58,59 @@ pip install -r requirements.txt                           # Install all required
   </a>
 </p>
 
-> 📽️ The video above shows the complete setup process for the `llol_step07` repository, from cloning to installing dependencies.
+> 📽️ The video above shows the complete setup process for the `llol_step09` repository, from cloning to installing dependencies.
 
 ---
 
-### 🌐 Internationalization: Running the `i18n_translate` Module
+## 🌐 Internationalization (i18n)
 
-To automatically generate or update translation files for your project, run the following command:
+This project supports full multilingual content through dynamic extraction and translation of interface text.
+
+### 🔤 Install Dependencies
+
+Before generating translation files, install the required packages:
 
 ```bash
-py -m main.i18n_translate
+pip install flask-babel deep-translator polib
 ```
 
-This module extracts translatable strings, creates `.po` files for each supported language (if they don't exist), and optionally translates them using automated tools such as `deep-translator`.
+These are used to:
+- Extract translatable strings (`flask-babel`)
+- Auto-translate new entries (`deep-translator`)
+- Manage `.po` files (`polib`)
 
-#### 📁 Output
+---
 
-- `translations/` folder with updated `.po` files per language.
-- Automatic generation of `.pot` template file based on source code and templates.
+### 🛠️ Generate Translation Files
 
-#### 🎬 Demo
+Run the following command to extract and translate strings:
+
+```bash
+py -m main.i18n_translate  # auto-generate .po files
+```
+
+This will:
+- Extract all `gettext` strings from Python and Jinja templates
+- Create or update `.po` files per language
+- Generate the `.pot` template file
+- Optionally auto-translate missing entries
+
+📁 Output structure:
+
+```bash
+translations/
+├── ar/
+│   └── LC_MESSAGES/messages.po
+├── de/
+│   └── LC_MESSAGES/messages.po
+└── messages.pot
+```
+
+> 💡 If the `translations/` folder doesn't exist, it will be created automatically.
+
+---
+
+### 🎬 Demo
 
 <p align="center">
   <a href="screenshots/i18n_translate.gif">
@@ -87,7 +118,16 @@ This module extracts translatable strings, creates `.po` files for each supporte
   </a>
 </p>
 
->📽️ This tool streamlines the i18n workflow by integrating extraction, translation, and file generation in a single command.
+> 📽️ A complete i18n workflow in one command: extraction, translation, and file generation.
+
+---
+
+### ✅ Tips
+
+- You can configure supported languages through your `LanguageOption` table in the admin panel.
+- Re-run the script after modifying any text with `gettext()` or adding new templates.
+- `polib` is required for proper `.po` file generation.
+
 
 ---
 
@@ -189,7 +229,7 @@ You can create the database using any method you prefer:
 After completing these steps, you can start the app with:
 
 ```bash
-py -m run
+py -m run  # start the Flask app using the run.py bootstrap
 ```
 
 This will:
@@ -210,30 +250,144 @@ This will:
 
 ---
 
+### 🧬 Database Migrations with `Flask-Migrate`
+
+This project uses **Flask-Migrate** to manage database schema changes via Alembic.
+
+#### ✅ Step 1: Initialize migrations folder
+
+After installing requirements, initialize migration support:
+
+```bash
+flask db init  # initialize migrations folder (Alembic)
+```
+
+This creates a `migrations/` folder to track schema versions.
+
+#### ✅ Step 2: Create migration script
+
+After modifying your models, run:
+
+```bash
+flask db migrate -m "Initial migration"  # generate migration script from model changes
+```
+
+This generates a migration file under `migrations/versions/`.
+
+#### ✅ Step 3: Apply the migration
+
+Apply the changes to your connected PostgreSQL database:
+
+```bash
+flask db upgrade  # apply the migration to the database
+```
+
+> 📌 Make sure your `.env` file is configured and the target database exists before running migrations.
+
+---
+
+### 💡 Notes
+
+- All migration scripts are tracked inside the `migrations/` folder.
+- For production environments, always test migrations on a staging database before applying.
+
+---
+
 ## 📂 Project Structure
 
 ```bash
-main/
-├── models.py
-├── routes.py
-├── templates/
-│   └── base.html.j2
-├── static/
-│   └── css/resume.css
-├── translations/
-└── ...
+📁 main/
+├── 📁 config/
+│   ├── __init__.py
+│   ├── config_loader.py
+│   ├── db_initializer.py
+│   └── settings.py
+├── 📁 logic/
+│   ├── __init__.py
+│   └── builder.py
+├── 📁 models/
+│   ├── LanguageOption.py
+│   ├── NavigationLink.py
+│   ├── README.md
+│   ├── Section.py
+│   ├── __init__.py
+│   ├── resume_field.py
+│   ├── resume_paragraph.py
+│   ├── resume_section.py
+│   └── resume_setting.py
+├── 📁 routes/
+│   ├── 📁 admin/
+│   │   ├── __init__.py
+│   │   ├── admin_builder_routes.py
+│   │   ├── admin_field.py
+│   │   ├── admin_paragraph.py
+│   │   └── admin_routes.py
+│   ├── 📁 resume_templates/
+│   │   ├── __init__.py
+│   │   └── template01_routes.py
+│   ├── README.md
+│   ├── __init__.py
+│   └── main_routes.py
+├── 📁 static/
+│   ├── 📁 css/
+│   │   ├── 📁 resume_templates/
+│   │   │   └── template01.css
+│   │   └── resume.css
+│   └── favicon.ico
+├── 📁 templates/
+│   ├── 📁 admin/
+│   │   ├── paragraph_fields.html.j2
+│   │   ├── resume_builder.html.j2
+│   │   ├── sections.html.j2
+│   │   ├── settings.html.j2
+│   │   └── single_section_view.html.j2
+│   ├── 📁 partials/
+│   │   ├── flash_messages.html.j2
+│   │   ├── footer.html.j2
+│   │   └── navbar.html.j2
+│   ├── 📁 resume_templates/
+│   │   └── template01.j2
+│   ├── base.html.j2
+│   ├── home.html.j2
+│   └── index.html.j2
+├── 📁 tools/
+│   ├── add_column_location.py
+│   ├── check_data.py
+│   └── init_db.py
+├── 📁 translations/
+│   ├── 📁 ar/
+│   │   └── 📁 LC_MESSAGES/
+│   │       └── messages.po
+│   └── 📁 de/
+│       └── 📁 LC_MESSAGES/
+│           └── messages.po
+├── __init__.py
+├── babel.cfg
+├── config.py
+├── extensions.py
+├── i18n.py
+├── i18n_runtime.py
+└── i18n_translate.py
 ```
 
 ---
 
 ## 🗺️ Roadmap
 
-- ✅ Step 07: Translation engine + dynamic sections
-- 🚧 Step 08: Admin interface for language settings (in progress)
-- ⏭️ Step 09: Display resume content using a ready-made template
-- 📄 Step 10: Export resume to PDF
-- 🎨 Step 11: Fine-tune paragraph formatting
-- 🔜 Step 12: To be determined
+- ✅ **Step 01**: Initialize Flask app and basic routing structure (`flask`)
+- ✅ **Step 03**: Integrate SQLAlchemy ORM for dynamic resume data modeling (`flask-sqlalchemy`)
+- ✅ **Step 11**: Add multilingual support and auto-translation via Babel and Deep Translator (`flask-babel`, `deep_translator`)
+- ✅ **Step 14 – Phase 05**: Set up environment-based configuration and PostgreSQL connection (`python-dotenv`, `psycopg2-binary`)
+- ✅ **Step 14 – Phase 06**: Enable translation file parsing and editing using `polib`
+- 🚧 **Step 14 – Phase 08**: Set up automated testing, coverage reports, and code quality checks (`pytest`, `pytest-cov`, `codecov`)
+- 🔜 **Step 14 – Phase 09**: Enable database migration with `Flask-Migrate` and Alembic (`flask-migrate`)
+- 📄 **Step 15**: Build resume export system to generate downloadable PDF files
+- 🎨 **Step 16**: Fine-tune paragraph styling, typography, and custom design options
+- 📚 **Step 17**: Generate and publish documentation with `mkdocs`, support for Git metadata and dynamic pages (`mkdocs-material`, etc.)
+- 🚀 **Step 18**: Prepare deployment setup (Docker, Gunicorn, CI/CD) and make it production-ready
+- 🔬 **Step 19**: Add resume preview templating and support for multiple themes
+- 🧠 **Step 20**: AI-powered suggestions for resume content improvements (future scope)
+
 
 
 ---
@@ -248,19 +402,42 @@ main/
 
 ---
 
-## 📜 License
+## 📚 Documentation & Tutorials
 
-This project is open-source under the MIT License.  
-Feel free to explore and build upon it.
+- [🔗 Official Project Wiki](https://github.com/TamerOnLine/llol_step09-v1/wiki) – Coming soon
+- [▶️ YouTube Tutorials](https://www.youtube.com/@mystrotamer) – In-depth walkthroughs and lessons
+- [📄 API Reference (if applicable)](docs/api.md)
+- [📘 Blog Posts and Articles](#) – To be linked
+
+> Want to suggest a tutorial or contribute documentation? Open an issue or PR!
+
 
 ---
 
-## 👨‍💻 Developer - Connect With Me
+## 📜 License
+
+This project is licensed under the [MIT License](LICENSE).  
+You are free to use, modify, and distribute it with attribution.  
+Feel free to explore and build upon it!
+
+---
+
+## 👨‍💻 About the Author
+
+This project is developed and maintained by [@TamerOnLine](https://github.com/TamerOnLine), a passionate software developer and educator focused on Python, Flask, PostgreSQL, and open-source learning tools.
+
+🔹 Founder of **Flask University** – an initiative to create real-world, open-source Flask projects  
+🔹 Creator of [@TamerOnPi](https://www.youtube.com/@mystrotamer) – a YouTube channel sharing tech, tutorials, and Pi Network insights  
+🔹 Building tools that empower developers to learn by doing, one milestone at a time
+
+Feel free to connect or contribute:
 
 [![GitHub](https://img.shields.io/badge/GitHub-TamerOnLine-181717?style=flat&logo=github)](https://github.com/TamerOnLine)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/tameronline/)
 [![YouTube](https://img.shields.io/badge/YouTube-TamerOnPi-red?style=flat&logo=youtube)](https://www.youtube.com/@mystrotamer)
 
+---
 
-By [@TamerOnLine](https://github.com/TamerOnLine)  
-Under the umbrella of [Flask University](https://github.com/Flask-University)
+> 💡 **Got feedback or want to collaborate?**  
+> Open an issue, fork the repo, or just say hi on LinkedIn!
+

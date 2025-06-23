@@ -4,15 +4,19 @@
 │   ├── config_loader.py
 │   ├── db_initializer.py
 │   └── settings.py
-├── 📁 images/
-│   └── template01_default.jpg
 ├── 📁 logic/
 │   ├── __init__.py
 │   └── builder.py
 ├── 📁 models/
+│   ├── LanguageOption.py
+│   ├── NavigationLink.py
 │   ├── README.md
+│   ├── Section.py
 │   ├── __init__.py
-│   └── models.py
+│   ├── resume_field.py
+│   ├── resume_paragraph.py
+│   ├── resume_section.py
+│   └── resume_setting.py
 ├── 📁 routes/
 │   ├── 📁 admin/
 │   │   ├── __init__.py
@@ -23,6 +27,7 @@
 │   ├── 📁 resume_templates/
 │   │   ├── __init__.py
 │   │   └── template01_routes.py
+│   ├── README.md
 │   ├── __init__.py
 │   └── main_routes.py
 ├── 📁 static/
@@ -48,15 +53,15 @@
 │   ├── home.html.j2
 │   └── index.html.j2
 ├── 📁 tools/
+│   ├── add_column_location.py
+│   ├── check_data.py
 │   └── init_db.py
 ├── 📁 translations/
 │   ├── 📁 ar/
 │   │   └── 📁 LC_MESSAGES/
-│   │       ├── messages.mo
 │   │       └── messages.po
 │   └── 📁 de/
 │       └── 📁 LC_MESSAGES/
-│           ├── messages.mo
 │           └── messages.po
 ├── __init__.py
 ├── babel.cfg
