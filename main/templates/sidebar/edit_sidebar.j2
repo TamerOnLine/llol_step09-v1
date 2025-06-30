@@ -1,0 +1,15 @@
+{% extends 'base.html.j2' %}
+{% block content %}
+<h2>{{ _('Edit Sidebar Link') }}</h2>
+
+<form method="post">
+    <input type="text" name="label" value="{{ link.label }}" required>
+    <input type="text" name="endpoint" value="{{ link.endpoint }}" required>
+    <input type="text" name="icon" value="{{ link.icon }}">
+    <input type="number" name="order" value="{{ link.order }}">
+    <label><input type="checkbox" name="is_visible" {% if link.is_visible %}checked{% endif %}> {{ _('Visible') }}</label>
+    <button type="submit">{{ _('Save Changes') }}</button>
+</form>
+
+<a href="{{ url_for('ui.manage_sidebar') }}">← {{ _('Back to Sidebar Management') }}</a>
+{% endblock %}

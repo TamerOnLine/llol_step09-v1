@@ -8,6 +8,7 @@ from main.models.resume_setting import Setting
 from main.models.Section import Section
 from main.models.LanguageOption import LanguageOption
 from main.models.NavigationLink import NavigationLink
+from main.routes.dashboard_ui import ui_bp
 
 from .routes.admin import admin_bp
 from .routes.main_routes import main_bp
@@ -45,6 +46,7 @@ def create_app():
 
     app.register_blueprint(main_bp)
     app.register_blueprint(admin_bp)
+    app.register_blueprint(ui_bp)
     for bp in template_blueprints:
         app.register_blueprint(bp)
 
@@ -95,7 +97,8 @@ def insert_initial_navigation():
             {"label": "Home", "icon": "", "endpoint": "main.index", "order": 0},
             {"label": "Sections", "icon": "", "endpoint": "admin.manage_sections", "order": 1},
             {"label": "Settings", "icon": "", "endpoint": "admin.manage_settings", "order": 2},
-            {"label": "Builder", "icon": "", "endpoint": "admin.resume_builder", "order": 3}
+            {"label": "Builder", "icon": "", "endpoint": "admin.resume_builder", "order": 3},
+            {"label": "Sidebar", "icon": "", "endpoint": "ui.manage_sidebar", "order": 4},
         ]
         for item in nav_items:
             link = NavigationLink(**item)
@@ -111,7 +114,9 @@ def insert_initial_languages():
         langs = [
             {"code": "ar", "name": "Arabic", "order": 1},
             {"code": "en", "name": "English", "order": 2},
-            {"code": "de", "name": "German", "order": 3}
+            {"code": "de", "name": "German", "order": 3},
+
+
         ]
         for lang in langs:
             db.session.add(LanguageOption(**lang))

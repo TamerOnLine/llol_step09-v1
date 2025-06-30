@@ -4,9 +4,9 @@ flask
 flask-sqlalchemy
 # step 11: i18nitialize Flask-Babel
 flask-babel==4.0.0
-deep_translator
+#deep_translator
 # step 14 - 05: Install Flask-Migrate
-polib
+#polib
 # step 14 - llol_step06:
 python-dotenv
 psycopg2-binary
@@ -23,6 +23,8 @@ mkdocs-git-revision-date-plugin
 mkdocs-macros-plugin
 # step 14 - llol_step09:
 flask-migrate
+# step 14 - llol_step09-v1:
+jinja-i18n-tools
 
 
 

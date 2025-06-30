@@ -13,7 +13,7 @@ msgstr ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-06-24 01:54+0200\n"
+"POT-Creation-Date: 2025-06-30 16:29+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,10 +21,6 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
-
-#: M:/llol_step09-v1/main/routes/main_routes.py:27
-msgid "Select language:"
-msgstr "Sprache auswählen:"
 
 #: M:/llol_step09-v1/main/routes/admin/admin_builder_routes.py:28
 msgid "Section added successfully"
@@ -138,7 +134,7 @@ msgstr "Lebenslauf Projekt Gestartett Erfolgreich!"
 msgid "Welcome to your multilingual resume application."
 msgstr "Willkommen bei Ihrer mehrsprachigen Lebenslaufanwendung."
 
-#: M:/llol_step09-v1/main/templates/index.html.j2:3
+#: M:/llol_step09-v1/main/templates/index.html.j2:4
 msgid "Welcome to Resume Project"
 msgstr "Willkommen zum Lebenslaufprojekt"
 
@@ -149,14 +145,6 @@ msgstr "Willkommen bei Resume Builder"
 #: M:/llol_step09-v1/main/templates/index.html.j2:7
 msgid "This platform allows you to build multilingual resumes dynamically."
 msgstr "Mit dieser Plattform können Sie mehrsprachige Lebensläufe dynamisch erstellen."
-
-#: M:/llol_step09-v1/main/templates/index.html.j2:11
-msgid "Go to Resume Builder"
-msgstr "Gehen Sie zum Resume Builder"
-
-#: M:/llol_step09-v1/main/templates/index.html.j2:14
-msgid "Customize Style"
-msgstr "Stil anpassen"
 
 #: M:/llol_step09-v1/main/templates/admin/paragraph_fields.html.j2:3
 #: M:/llol_step09-v1/main/templates/admin/paragraph_fields.html.j2:6
@@ -173,8 +161,9 @@ msgstr "Feldtyp"
 
 #: M:/llol_step09-v1/main/templates/admin/paragraph_fields.html.j2:19
 #: M:/llol_step09-v1/main/templates/admin/paragraph_fields.html.j2:82
-#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:26
-#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:83
+#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:24
+#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:40
+#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:100
 #: M:/llol_step09-v1/main/templates/admin/single_section_view.html.j2:22
 #: M:/llol_step09-v1/main/templates/admin/single_section_view.html.j2:110
 msgid "Order"
@@ -212,6 +201,7 @@ msgstr "Optionale Beschreibung"
 
 #: M:/llol_step09-v1/main/templates/admin/paragraph_fields.html.j2:33
 #: M:/llol_step09-v1/main/templates/admin/paragraph_fields.html.j2:96
+#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:41
 #: M:/llol_step09-v1/main/templates/admin/single_section_view.html.j2:40
 #: M:/llol_step09-v1/main/templates/admin/single_section_view.html.j2:128
 msgid "Visible"
@@ -222,13 +212,12 @@ msgid "Add Field"
 msgstr "Feld hinzufügen"
 
 #: M:/llol_step09-v1/main/templates/admin/paragraph_fields.html.j2:46
-#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:39
 #: M:/llol_step09-v1/main/templates/admin/single_section_view.html.j2:58
 msgid "Hidden"
 msgstr "Versteckt"
 
 #: M:/llol_step09-v1/main/templates/admin/paragraph_fields.html.j2:52
-#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:44
+#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:54
 #: M:/llol_step09-v1/main/templates/admin/single_section_view.html.j2:72
 msgid "Edit"
 msgstr "Bearbeiten"
@@ -244,7 +233,7 @@ msgid "Type"
 msgstr "Typ"
 
 #: M:/llol_step09-v1/main/templates/admin/paragraph_fields.html.j2:99
-#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:86
+#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:103
 #: M:/llol_step09-v1/main/templates/admin/single_section_view.html.j2:131
 msgid "Save"
 msgstr "Speichern"
@@ -266,64 +255,82 @@ msgstr "Interaktiver Lebenslaufbauer"
 msgid "Resume Builder"
 msgstr "Lebenslaufbauer"
 
-#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:14
+#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:12
 msgid "Add New Section"
 msgstr "Neuen Abschnitt hinzufügen"
 
-#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:16
-#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:73
+#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:14
+#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:38
+#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:90
 msgid "Title"
 msgstr "Titel"
 
-#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:19
-#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:76
+#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:17
+#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:39
+#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:93
 msgid "Language"
 msgstr "Sprache"
 
-#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:21
-#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:78
+#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:19
+#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:95
 msgid "English"
 msgstr "Englisch"
 
-#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:22
-#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:78
+#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:20
+#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:95
 msgid "Arabic"
 msgstr "Arabisch"
 
-#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:23
-#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:78
+#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:21
+#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:95
 msgid "German"
 msgstr "Deutsch"
 
-#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:29
+#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:27
 msgid "Add Section"
 msgstr "Abschnitt hinzufügen"
 
-#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:47
+#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:33
+msgid "Resume Sections"
+msgstr "Lebenslaufabschnitte"
+
+#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:42
+msgid "Actions"
+msgstr "Aktionen"
+
+#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:51
+msgid "Yes"
+msgstr "Ja"
+
+#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:51
+msgid "No"
+msgstr "NEIN"
+
+#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:58
 msgid "Are you sure you want to delete this section?"
 msgstr "Sind Sie sicher, dass Sie diesen Abschnitt löschen möchten?"
 
-#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:48
+#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:59
 #: M:/llol_step09-v1/main/templates/admin/single_section_view.html.j2:76
 msgid "Delete"
 msgstr "Löschen"
 
-#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:52
+#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:64
 #: M:/llol_step09-v1/main/templates/admin/single_section_view.html.j2:80
 msgid "Move Up"
 msgstr "Nach oben gehen"
 
-#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:56
+#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:69
 #: M:/llol_step09-v1/main/templates/admin/single_section_view.html.j2:84
 msgid "Move Down"
 msgstr "Sich nach unten bewegen"
 
-#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:60
+#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:74
 #: M:/llol_step09-v1/main/templates/admin/single_section_view.html.j2:88
 msgid "Toggle Visibility"
 msgstr "Sichtbarkeit umschalten"
 
-#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:66
+#: M:/llol_step09-v1/main/templates/admin/resume_builder.html.j2:81
 msgid "Manage Paragraphs"
 msgstr "Absätze verwalten"
 

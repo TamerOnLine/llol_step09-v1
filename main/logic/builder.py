@@ -1,5 +1,6 @@
 import json
-from ..models.models import Setting
+from ..models.resume_setting import Setting
+
 
 def get_css_setting(key, default=""):
     """

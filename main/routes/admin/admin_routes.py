@@ -5,8 +5,7 @@ from main.models.resume_paragraph import ResumeParagraph
 from main.models.resume_field import ResumeField
 from main.models.resume_setting import Setting
 from main.models.Section import Section
-from main.models.LanguageOption import LanguageOption
-from main.models.NavigationLink import NavigationLink
+
 
 from flask_babel import force_locale
 from main.i18n_runtime import get_locale

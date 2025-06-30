@@ -424,20 +424,20 @@ Feel free to explore and build upon it!
 
 ## 👨‍💻 About the Author
 
-This project is developed and maintained by [@TamerOnLine](https://github.com/TamerOnLine), a passionate software developer and educator focused on Python, Flask, PostgreSQL, and open-source learning tools.
+🎯 **Tamer OnLine – Developer & Architect**  
+A dedicated software engineer and educator with a focus on building multilingual, modular, and open-source applications using Python, Flask, and PostgreSQL.
 
 🔹 Founder of **Flask University** – an initiative to create real-world, open-source Flask projects  
 🔹 Creator of [@TamerOnPi](https://www.youtube.com/@mystrotamer) – a YouTube channel sharing tech, tutorials, and Pi Network insights  
-🔹 Building tools that empower developers to learn by doing, one milestone at a time
+🔹 Passionate about helping developers learn by building, one milestone at a time
 
-Feel free to connect or contribute:
+Connect or contribute:
 
-[![GitHub](https://img.shields.io/badge/GitHub-TamerOnLine-181717?style=flat&logo=github)](https://github.com/TamerOnLine)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/tameronline/)
+[![GitHub](https://img.shields.io/badge/GitHub-TamerOnLine-181717?style=flat&logo=github)](https://github.com/TamerOnLine)  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/tameronline/)  
 [![YouTube](https://img.shields.io/badge/YouTube-TamerOnPi-red?style=flat&logo=youtube)](https://www.youtube.com/@mystrotamer)
 
 ---
-
 > 💡 **Got feedback or want to collaborate?**  
 > Open an issue, fork the repo, or just say hi on LinkedIn!
 

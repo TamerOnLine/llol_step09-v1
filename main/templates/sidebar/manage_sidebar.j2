@@ -1,0 +1,41 @@
+{% extends 'base.html.j2' %}
+{% block content %}
+<h2>{{ _('Sidebar Management') }}</h2>
+
+<form method="post" style="margin-bottom: 30px;">
+    <input type="text" name="label" placeholder="{{ _('Link Name') }}" required>
+    <input type="text" name="endpoint" placeholder="{{ _('Endpoint Name (for url_for)') }}" required>
+    <input type="text" name="icon" placeholder="{{ _('Icon (optional)') }}">
+    <input type="number" name="order" placeholder="{{ _('Order') }}" min="0">
+    <label><input type="checkbox" name="is_visible" checked> {{ _('Visible') }}</label>
+    <button type="submit">{{ _('Add') }}</button>
+</form>
+
+<table border="1" cellpadding="5" cellspacing="0">
+    <thead>
+        <tr>
+            <th>{{ _('Label') }}</th>
+            <th>{{ _('Endpoint') }}</th>
+            <th>{{ _('Icon') }}</th>
+            <th>{{ _('Order') }}</th>
+            <th>{{ _('Visible') }}</th>
+            <th>{{ _('Actions') }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for link in links %}
+        <tr>
+            <td>{{ link.label }}</td>
+            <td>{{ link.endpoint }}</td>
+            <td>{{ link.icon or '-' }}</td>
+            <td>{{ link.order }}</td>
+            <td>{{ _('Yes') if link.is_visible else _('No') }}</td>
+            <td>
+                <a href="{{ url_for('ui.edit_sidebar_link', link_id=link.id) }}">{{ _('Edit') }}</a> |
+                <a href="{{ url_for('ui.delete_sidebar_link', link_id=link.id) }}" onclick="return confirm('{{ _('Are you sure you want to delete this link?') }}')">{{ _('Delete') }}</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
